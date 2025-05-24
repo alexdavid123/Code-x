@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic Food Hub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #050505, #0a0a0a);
+      font-family: 'Orbitron', sans-serif;
+      color: #00f7ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 40px;
+      text-shadow: 0 0 20px #00f7ff;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .food-card {
+      background: rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid #00f7ff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px #00f7ff60;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .food-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #00f7ff;
+    }
+
+    .food-card img {
+      width: 100%;
+      border-radius: 12px;
+      border: 2px solid #00f7ff;
+    }
+
+    .food-name {
+      margin: 15px 0 10px;
+      font-size: 20px;
+      color: #00f7ff;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #00fff7;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Futuristic Food Hub</h1>
+  <div class="menu-container" id="menu">
+    <!-- Cards will be added here by JS -->
+  </div>
+  <footer>© 2025 L & N Futurist Food Co.</footer>
+
+  <script>
+    // Python-style data (like list of dicts)
+    const foodItems = [
+      {
+        name: "Neon Sushi",
+        desc: "Glowing fish with techno-rice blend.",
+        price: "$29.99",
+        img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+      },
+      {
+        name: "Plasma Pizza",
+        desc: "Thin crust with quantum cheese melt.",
+        price: "$24.50",
+        img: "https://images.unsplash.com/photo-1601924638867-3ec3b1eae87b"
+      },
+      {
+        name: "Cyber Burger",
+        desc: "Chrome bun & AI-grown meat patty.",
+        price: "$19.99",
+        img: "https://images.unsplash.com/photo-1550547660-d9450f859349"
+      },
+      {
+        name: "Nano Tacos",
+        desc: "Tacos loaded with nano-flavor bots.",
+        price: "$14.75",
+        img: "https://images.unsplash.com/photo-1625943741515-293bd4a99392"
+      }
+    ];
+
+    const menuDiv = document.getElementById("menu");
+
+    foodItems.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "food-card";
+      card.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="food-name">${item.name}</div>
+        <div class="description">${item.desc}</div>
+        <div class="price">${item.price}</div>
+      `;
+      menuDiv.appendChild(card);
+    });
+  </script>
+</body>
+</html>
